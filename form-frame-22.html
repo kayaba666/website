@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="kk"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Форма және Фрейм — 22 тапсырма</title>
+<style id="css">
+:root{--bg:#f2f7fb;--card:#fff;--hd:#0b2f4a;--ink:#0b2f4a;--ink2:#14507a;--sky:#2a9dd6;--sun:#f0b92a;--line:#d3e1ec;--tx:#1a2b3b;--mu:#5d7387;--in:#fbfdff;box-sizing:border-box;padding:env(safe-area-inset-top,0px) 0 env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#0c1822;--card:#13283a;--hd:#0a2237;--ink:#8fd0f2;--ink2:#5fb6e6;--line:#25435a;--tx:#e4eef5;--mu:#9bb3c4;--in:#0f2130}}
+:root[data-theme=dark]{--bg:#0c1822;--card:#13283a;--hd:#0a2237;--ink:#8fd0f2;--ink2:#5fb6e6;--line:#25435a;--tx:#e4eef5;--mu:#9bb3c4;--in:#0f2130}
+*,*:before{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font:15px/1.6 "Segoe UI",system-ui,sans-serif;color:var(--tx);background:var(--bg)}
+.in{padding:18px}
+h2,h3{font-family:Georgia,serif;color:var(--ink);margin:0 0 10px}
+h2{font-size:1.5rem}.mu{color:var(--mu);margin:0 0 16px}
+.app{display:grid;grid-template-columns:280px 1fr;grid-template-rows:auto 1fr;height:100%}
+header{grid-column:1/3;display:flex;align-items:center;gap:12px;padding:12px 20px;background:var(--hd);color:#fff;border-bottom:4px solid var(--sun)}
+header h1{font:700 1.15rem Georgia,serif;margin:0}
+#mb{display:none;padding:4px 12px;margin:0}
+aside{overflow:auto;background:var(--card);border-right:1px solid var(--line);padding:8px 10px}
+aside h4{margin:14px 8px 4px;font-size:.72rem;color:var(--mu);text-transform:uppercase;letter-spacing:.5px}
+aside a,.mn a{display:block;padding:7px 12px;margin-bottom:2px;border-radius:8px;cursor:pointer;color:var(--ink);font-weight:600;border-left:4px solid transparent}
+aside a:hover,aside a.on,.mn a:hover,.mn a.on{background:rgba(42,157,214,.16);border-left-color:var(--sun)}
+#main{overflow:auto;padding:22px}
+.lay{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.lay .hd{background:var(--hd);color:#fff;padding:10px 16px;font:700 1.1rem Georgia,serif}
+.bd{display:grid;grid-template-columns:200px 1fr;height:540px}
+.w .bd{grid-template-columns:360px 1fr}
+.mn{border-right:1px solid var(--line);padding:8px;overflow:auto}
+.lay iframe{width:100%;height:100%;border:0;background:var(--bg)}
+.tri{display:flex;flex-wrap:wrap;gap:14px}
+.tri iframe{border:1px solid var(--line);border-radius:12px;background:var(--bg)}
+fieldset{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 16px;padding:10px 18px 16px}
+legend{font-weight:700;color:#0b2f4a;padding:3px 14px;background:var(--sun);border-radius:20px;font-size:.85rem}
+label{display:block;margin-top:10px;font-weight:600;font-size:.9rem;color:var(--ink)}
+.oi{display:inline-block;margin:4px 14px 0 0;font-weight:400;color:var(--tx)}
+.in2{margin-top:10px}
+input:not([type=radio]):not([type=checkbox]):not([type=color]),select,textarea{width:100%;padding:9px 12px;margin-top:4px;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--tx);background:var(--in)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--sky);box-shadow:0 0 0 4px rgba(42,157,214,.18)}
+input:user-invalid{border-color:#d9534f}
+button{padding:10px 22px;border:0;border-radius:10px;font:inherit;font-weight:700;cursor:pointer;background:var(--sun);color:#0b2f4a;margin:8px 8px 0 0}
+button:hover{filter:brightness(1.06)}
+button[type=reset]{background:transparent;border:1px solid var(--ink2);color:var(--ink)}
+table{width:100%;border-collapse:collapse;background:var(--card);margin-bottom:12px}
+th,td{padding:9px 12px;border:1px solid var(--line);text-align:left}
+th{background:var(--hd);color:#fff}
+pre{background:var(--hd);color:#e8f3fa;padding:12px;border-radius:10px;overflow:auto}
+.vid{aspect-ratio:16/9;background:#0b2f4a;color:#fff;display:grid;place-items:center;font-size:3rem;border-radius:12px}
+.ok{color:#1a8a4a;font-weight:700}
+a{color:var(--ink2);cursor:pointer}
+@media(max-width:800px){.app{grid-template-columns:1fr}#mb{display:block}aside{display:none;position:fixed;top:56px;left:0;right:0;bottom:0;z-index:5}aside.open{display:block}#main{padding:14px}.bd,.w .bd{grid-template-columns:1fr;grid-template-rows:auto 1fr;height:680px}.mn{display:flex;gap:4px;border-right:0;border-bottom:1px solid var(--line)}.mn a{white-space:nowrap}.w .mn{display:block;max-height:300px}}
+</style></head>
+<body>
+<div class="app">
+<header><button id="mb" aria-label="Мәзір">☰</button><h1>🎓 Форма және Фрейм · 22 тапсырма</h1></header>
+<aside id="sd"></aside>
+<section id="main"></section>
+</div>
+<script>
+var U=0,P={},I=[],CSS=document.getElementById('css').textContent;
+var g=function(i){return document.getElementById(i)};
+function esc(s){return s.replace(/[&<>"]/g,function(c){return '&#'+c.charCodeAt(0)+';'})}
+function sd(b){return '<!doctype html><html lang="kk"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>'+CSS+'</style><body class="in">'+b}
+var SUB="event.preventDefault();this.querySelectorAll('.ok').forEach(function(x){x.remove()});var p=document.createElement('p');p.className='ok';p.textContent='Жіберілді ✓ Рақмет!';this.append(p)";
+function fld(f){var l=f[0],t=f[1]||'text',x=f[2]||'',m=f[3],n='f'+(++U);
+ if(t=='radio'||t=='check'){var ty=t=='radio'?'radio':'checkbox';return '<div class="in2"><b>'+l+'</b><br>'+x.split(';').map(function(o,j){return '<label class="oi"><input type="'+ty+'" name="'+l+'" value="'+o+'"'+(t=='radio'&&!j?' required':'')+'> '+o+'</label>'}).join('')+'</div>'}
+ var a='id="'+n+'" name="'+l+'"',c;
+ if(t=='select')c='<select '+a+' required><option value="">— таңдаңыз —</option>'+x.split(';').map(function(o){return '<option>'+o+'</option>'}).join('')+'</select>';
+ else if(t=='textarea')c='<textarea '+a+' rows="3" maxlength="'+(m||300)+'" placeholder="'+x+'"></textarea>';
+ else if(t=='range'){var r=x.split(';');c='<input '+a+' type="range" min="'+r[0]+'" max="'+r[1]+'" value="'+r[1]+'">'}
+ else if(t=='number'){var q=(x||'0;100').split(';');c='<input '+a+' type="number" min="'+q[0]+'" max="'+q[1]+'" placeholder="'+q[0]+'–'+q[1]+'" required>'}
+ else if(t=='file'||t=='color'||t=='date'||t=='time')c='<input '+a+' type="'+t+'"'+(t=='file'||t=='color'?'':' required')+'>';
+ else c='<input '+a+' type="'+t+'" placeholder="'+x+'" maxlength="'+(m||60)+'" required>';
+ return '<label for="'+n+'">'+l+c+'</label>'}
+function form(s,txt,at){return '<form '+(at||'onsubmit="'+SUB+'"')+'>'+s.map(function(z){return '<fieldset><legend>'+z[0]+'</legend>'+z.slice(1).map(fld).join('')+'</fieldset>'}).join('')+'<button>'+(txt||'Жіберу')+'</button><button type="reset">Тазалау</button></form>'}
+function tb(r){return '<table>'+r.map(function(x,i){return '<tr>'+x.map(function(c){return i?'<td>'+c+'</td>':'<th>'+c+'</th>'}).join('')+'</tr>'}).join('')+'</table>'}
+function S(id,k){g('f'+id).srcdoc=sd(P[id][k]);document.querySelectorAll('#m'+id+' a').forEach(function(a){a.classList.toggle('on',a.dataset.k==k)})}
+function Tg(f,id,t){var r='';new FormData(f).forEach(function(v,k){if(typeof v=='string'&&v)r+='<tr><td>'+esc(k)+'</td><td>'+esc(v)+'</td></tr>'});g(id).srcdoc=sd('<h3>'+t+'</h3><p class="ok">Деректер қабылданды ✓</p><table>'+r+'</table>');return false}
+function L(id,pairs,head,left){P[id]={};pairs.forEach(function(p){P[id][p[0]]='<h3>'+p[0]+'</h3>'+(p[1][0]=='<'?p[1]:'<p>'+p[1]+'</p>')});
+ var mn=left?'<div class="mn">'+left+'</div>':'<nav class="mn" id="m'+id+'">'+pairs.map(function(p){return '<a data-k="'+p[0]+'" onclick="S('+id+',this.dataset.k)">'+p[0]+'</a>'}).join('')+'</nav>';
+ I.push(left?function(){g('f'+id).srcdoc=sd('<p>Нәтиже осы iframe ішінде шығады.</p>')}:function(){S(id,pairs[0][0])});
+ return '<div class="lay'+(left?' w':'')+'">'+(head?'<div class="hd">'+head+'</div>':'')+'<div class="bd">'+mn+'<iframe id="f'+id+'" name="fr'+id+'" title="iframe '+id+'"></iframe></div></div>'}
+var C="Астана;Алматы;Қарағанды;Шымкент",PH="+7 700 000 00 00";
+var nm=["Аты-жөні","text","Айдар Нұрланов"],em=["Email","email","name@mail.kz"],ph=["Телефон","tel",PH,16],bd=["Туған күні","date"],gn=["Жынысы","radio","Ер;Әйел"],ct=["Қала","select",C],ad=["Мекенжай","text","Көше, үй",80];
+var SP="Информатика;Экономика;Құқық;Медицина";
+function BK(){return form([["Қонақ",nm,ph,em],["Күндер",["Келу күні","date"],["Кету күні","date"],["Қонақ саны","number","1;6"]],["Бөлме",["Бөлме түрі","radio","Стандарт;Люкс;Отбасылық"],["Тамақтану","radio","Тек төсек;Таңғы ас;Толық"],["Қосымша қызмет","check","Wi-Fi;Трансфер;СПА"],["Арнайы өтініш","textarea","Тілектеріңіз"]]],"Брондау")}
+function V(t){return '<div class="vid">▶</div><p>«'+t+'» бейне сабағы (макет)</p>'}
+var K=[
+["Көпбөлімді тіркелу формасы","Студентті тіркеу: fieldset, required, placeholder, maxlength.",function(){return form([["Жеке ақпарат",nm,bd,gn,ct],["Байланыс",em,ph,ad],["Қауіпсіздік",["Құпиясөз","password","Кемінде 8 таңба",30],["Құпиясөзді қайталау","password","Қайталаңыз",30]]],"Тіркелу")}],
+["Университетке қабылдау формасы","Абитуриент: 5 бөлім, fieldset + legend.",function(){return form([["Жеке ақпарат",nm,bd,gn],["Байланыс ақпараты",em,ph,ct],["Білім туралы ақпарат",["Мектеп","text","Мектеп / лицей"],["Бітірген жылы","number","2015;2026"],["ҰБТ балы","number","0;140"]],["Таңдайтын мамандық",["Мамандық","select",SP],["Оқу түрі","radio","Күндізгі;Сырттай"]],["Қосымша ақпарат",["Қосымша","check","Жатақхана керек;Грантқа өтінім"],["Түсініктеме","textarea","Өзіңіз туралы"]]],"Жіберу")}],
+["Онлайн дүкенге тапсырыс","10+ түрлі input элементі.",function(){return form([["Тауар",["Тауар","select","Ноутбук;Телефон;Планшет;Құлаққап"],["Саны","number","1;10"],["Түсі","color"],["Промокод","text","SALE2026",12]],["Жеткізу және төлем",["Жеткізу","radio","Курьер;Самовывоз;Пошта"],ad,["Күні","date"],["Төлем","radio","Карта;Қолма-қол;Kaspi"]],["Клиент",nm,ph,em,["Хабарландыру","check","SMS;Email"],["Түсініктеме","textarea","Қосымша тілек"]]],"Тапсырыс беру")}],
+["Қонақүйге бөлме брондау","3 checkbox және 3 radio.",BK],
+["Жұмысқа қабылдау формасы","file, number, range, textarea.",function(){return form([["Жеке ақпарат",nm,em,ct],["Білімі мен тәжірибесі",["Білім деңгейі","select","Орта;Бакалавр;Магистр"],["Тәжірибе (жыл)","number","0;40"]],["Дағдылар",["Python деңгейі","range","1;10"],["JavaScript деңгейі","range","1;10"],["Күтілетін жалақы (₸)","number","0;5000000"]],["Құжаттар",["CV жүктеу","file"],["Өзі туралы","textarea","Қысқаша жазыңыз"]]],"Өтініш жіберу")}],
+["Медициналық қабылдауға жазылу","Логикалық бөлімдер.",function(){return form([["Пациент",nm,bd,gn,ph],["Қабылдау",["Дәрігер","select","Терапевт;Невролог;Кардиолог;ЛОР"],["Қабылдау күні","date"],["Уақыты","time"]],["Анамнез",["Шағым","textarea","Не мазалайды?"],["Бұрынғы аурулар","textarea","Бар болса жазыңыз"]]],"Жазылу")}],
+["Кинотеатр билетіне тапсырыс","select, radio, checkbox, number.",function(){return form([["Сеанс",["Фильм","select","Ғарыш сапары;Дала жыры;Түнгі қала"],["Кинотеатр","select","Chaplin;Kinopark;Keruen"],["Күні","date"],["Сеанс","select","12:00;15:30;19:00;22:00"]],["Билет",["Билет саны","number","1;10"],["Орын түрі","radio","Стандарт;VIP;Диван"],["Формат","radio","2D;3D"],["Қосымша","check","Попкорн;Сусын"],["Төлем әдісі","select","Карта;Kaspi;Қолма-қол"]]],"Билет брондау")}],
+["Автокөлік жалдау формасы","15+ басқару элементі.",function(){return form([["Автокөлік",["Маркасы","select","Toyota;Hyundai;Kia;BMW"],["Түрі","select","Седан;Кроссовер;Минивэн"],["Алу күні","date"],["Қайтару күні","date"]],["Жүргізуші",nm,ph,em,["Жасы","number","21;80"],["Қосымша жүргізуші","radio","Бар;Жоқ"]],["Қызметтер",["Сақтандыру","radio","Базалық;Толық"],["Қосымша","check","GPS;Балалар орындығы;Wi-Fi"],["Күндік жүріс (км)","number","100;1000"],["Түсініктеме","textarea","Тілектер"]]],"Жалға алу")}],
+["Онлайн сауалнама","5 radio, 5 checkbox, 3 select, 2 textarea, 1 range.",function(){var R="Нашар;Орташа;Жақсы;Өте жақсы";return form([["Бағалау",["Оқытушылар сапасы","radio",R],["Оқу материалдары","radio",R],["Сабақ кестесі","radio",R],["Платформа","radio",R],["Қолдау қызметі","radio",R]],["Таңдаулар",["Не ұнады?","check","Лекциялар;Практика;Оқулықтар;Платформа;Кураторлар"],["Курс","select","1;2;3;4"],["Факультет","select","IT;Экономика;Құқық"],["Оқу түрі","select","Күндізгі;Онлайн"],["Жалпы баға","range","1;10"]],["Пікір",["Не жақсартуға болады?","textarea","Жазыңыз"],["Қосымша ұсыныс","textarea","Жазыңыз"]]],"Жіберу")}],
+["Интернет-банкинг формасы","Құпия өрістер password типімен.",function(){return form([["Жіберуші",["Жіберушінің аты","text","Аты-жөні"],["Шот нөмірі","password","KZ…",20]],["Алушы",["Алушының аты","text","Аты-жөні"],["Алушының шоты","password","KZ…",20]],["Төлем",["Сома","number","1;10000000"],["Валюта","select","KZT;USD;EUR"],["Төлем мақсаты","text","Мысалы: оқу ақысы",80],["Қауіпсіздік коды","password","CVV",4]]],"Аудару")}],
+["Бір бетте үш iframe","Жаңалықтар, карта, видео — өлшемдері әртүрлі.",function(){I.push(function(){g('a11').srcdoc=sd('<h3>📰 Жаңалықтар</h3><p>• Жаңа курстар ашылды<br>• Қабылдау басталды</p>');g('b11').srcdoc=sd('<h3>🗺 Карта</h3><svg viewBox="0 0 300 160" width="100%"><rect width="300" height="160" fill="#cfe8f5"/><path d="M0 100 Q80 70 150 105 T300 80 V160 H0Z" fill="#9fd0a8"/><path d="M60 0 L130 160" stroke="#fff" stroke-width="6"/><circle cx="170" cy="78" r="9" fill="#d9534f"/></svg><p>📍 Қарағанды</p>');g('c11').srcdoc=sd('<h3>🎬 Видео</h3>'+V('Қысқа таныстыру'))});return '<div class="tri"><iframe id="a11" title="Жаңалықтар" style="width:100%;height:150px"></iframe><iframe id="b11" title="Карта" style="flex:1 1 320px;height:280px"></iframe><iframe id="c11" title="Видео" style="width:300px;height:280px"></iframe></div>'}],
+["Навигациялық фрейм","Сол жақта мәзір, оң жақта iframe.",function(){return L(12,[["Басты бет","Сайтымызға қош келдіңіз!"],["Біз туралы","Біз 2010 жылдан бері білім береміз."],["Қызметтер","Курстар, кеңес беру, сертификация."],["Байланыс","info@example.kz · "+PH]])}],
+["Университет сайты (макет)","UNIVERSITY тақырыбы + мәзір + iframe.",function(){return L(13,[["Басты ақпарат","Университет — заманауи білім орталығы."],["Факультеттер","IT, Экономика, Құқық, Медицина."],["Қабылдау","Құжаттар 1 маусымнан бастап қабылданады."],["Байланыс","Қарағанды қ., Жеңіс даңғылы 1."]],"UNIVERSITY")}],
+["Онлайн оқу платформасы","HTML, CSS, JS, SQL, Python материалдары.",function(){return L(14,[["HTML","<p>Белгілеу тілі.</p><pre>&lt;h1&gt;Сәлем&lt;/h1&gt;</pre>"],["CSS","<p>Стильдер.</p><pre>h1{color:#14507a}</pre>"],["JavaScript","<p>Бет логикасы.</p><pre>alert('Сәлем')</pre>"],["SQL","<p>Деректер қоры.</p><pre>SELECT * FROM users;</pre>"],["Python","<p>Жалпы мақсатты тіл.</p><pre>print('Сәлем')</pre>"]],"📘 Оқу платформасы")}],
+["Видео кітапхана","Атауды басқанда видео iframe ішінде ашылады.",function(){return L(15,["HTML негіздері","Формалар","Фреймдер","CSS","JavaScript"].map(function(t){return [t,V(t)]}),"▶ Видео кітапхана")}],
+["Тіркелу + жеке кабинет","form → target → iframe.",function(){return L(16,[],"Тіркелу → жеке кабинет",form([["Тіркелу",nm,em,["Мамандық","select",SP],["Өзі туралы","textarea","Қысқаша"],["Құпиясөз","password","8+ таңба",30]]],"Кабинетті ашу","target=\"fr16\" onsubmit=\"return Tg(this,'f16','Жеке кабинет')\""))}],
+["Онлайн тапсырыс жүйесі","Сол жақта форма, оң жақта iframe (чек).",function(){return L(17,[],"Онлайн тапсырыс",form([["Тапсырыс",["Тауар","select","Ноутбук;Телефон;Планшет;Құлаққап"],["Саны","number","1;10"],["Түсі","select","Қара;Ақ;Көк"],["Жеткізу","radio","Курьер;Самовывоз"],["Төлем","radio","Карта;Қолма-қол"]],["Клиент",nm,ph,ad]],"Жіберу","target=\"fr17\" onsubmit=\"return Tg(this,'f17','Тапсырыс чегі')\""))}],
+["Қонақүй сайты + брондау","«Брондау» формасы iframe ішінде.",function(){return L(18,[["Қонақүй туралы","4 жұлдызды қонақүй, қала орталығында."],["Бөлмелер","Стандарт, Люкс, Отбасылық."],["Бағалар",tb([["Бөлме","Түніне"],["Стандарт","18 000 ₸"],["Люкс","35 000 ₸"],["Отбасылық","28 000 ₸"]])],["Қызметтер","Wi-Fi, СПА, трансфер, таңғы ас."],["Брондау",BK()]],"🏨 Grand Hotel")}],
+["Интернет-дүкен каталогы","Категория → өнім беті iframe-де.",function(){return L(19,["Ноутбуктер","Телефондар","Планшеттер","Құлаққаптар"].map(function(c){return [c,tb([["Тауар","Баға"],[c+" Pro","450 000 ₸"],[c+" Lite","250 000 ₸"],[c+" Mini","120 000 ₸"]])]}),"🛒 Категориялар")}],
+["Электрондық кітапхана","Барлық бөлім iframe ішінде, тапсырыс формасымен.",function(){return L(20,[["Кітаптар",tb([["Кітап","Автор"],["Абай жолы","М. Әуезов"],["Қан мен тер","Ә. Нұрпейісов"]])],["Авторлар","М. Әуезов, Ә. Нұрпейісов, І. Есенберлин."],["Жаңа кітаптар","Жаңадан келгендер: «Көшпенділер»."],["Іздеу",form([["Іздеу",["Кітап атауы","text","Атауы немесе автор"],["Санат","select","Роман;Ғылым;Поэзия"]]],"Іздеу")],["Кітапқа тапсырыс беру",form([["Тапсырыс",nm,ph,["Кітап атауы","text","Атауы"],["Күні","date"]]],"Тапсырыс беру")]],"📚 Кітапхана")}],
+["Күрделі студенттік портал","7 бөлім; кері байланыс формасы 12+ элемент.",function(){return L(21,[["Студент туралы ақпарат",tb([["Өріс","Мәні"],["Аты-жөні","Айдар Нұрланов"],["Топ","ПО-21"],["Курс","2"],["GPA","3.6"]])],["Сабақ кестесі",tb([["Күн","Пән","Уақыты"],["Дс","Python","09:00"],["Сс","SQL","11:00"],["Бс","JavaScript","13:00"]])],["Бағалар",tb([["Пән","Баға"],["Python","A"],["SQL","B+"],["JavaScript","A-"]])],["Пәндер","<ul><li>Python</li><li>SQL</li><li>JavaScript</li></ul>"],["Оқытушылар","<ul><li>Б. Қасымов — Python</li><li>А. Төлегенова — SQL</li></ul>"],["Тапсырмалар",tb([["Тапсырма","Мерзімі"],["SQL сұраныстар","20.10"],["Форма жасау","25.10"]])],["Кері байланыс",form([["Кері байланыс",nm,em,["Топ","text","ПО-21",10],["Пән","select","Python;SQL;JavaScript"],["Түрі","radio","Ұсыныс;Шағым;Алғыс"],["Тақырып","text","Қысқаша",80],["Бағалау","range","1;5"],["Күні","date"],["Хабарлама","textarea","Жазыңыз"],["Файл","file"],["Анонимді","check","Атымды жасыру"]]],"Жіберу")]],"🎓 Студенттік портал")}],
+["ҚОРЫТЫНДЫ: Онлайн университет","Толық сайт: навигация, 2 форма, байланысқан бөлімдер.",function(){var lk=function(k){return '<a onclick="parent.S(22,\''+k+'\')">'+k+'</a>'};return L(22,[["Басты бет","<p><b>Онлайн университет</b> — қашықтан білім беретін платформа. Бастау үшін "+lk("Тіркелу")+" немесе "+lk("Курстар")+" бөлімін ашыңыз; сұрақ болса — "+lk("Байланыс")+".</p>"],["Студенттер",tb([["Аты-жөні","Мамандық","Курс","Топ"],["Айдар Нұрланов","Информатика","2","ПО-21"],["Дана Сәрсенова","Экономика","1","ЭК-11"]])],["Оқытушылар","<ul><li>Г. Ахметова — HTML/CSS</li><li>Б. Қасымов — Python</li><li>А. Төлегенова — SQL</li></ul>"],["Пәндер",tb([["Пән","Кредит"],["HTML және CSS","4"],["JavaScript","5"],["SQL","4"],["Python","5"]])],["Курстар","1 курс — веб-негіздері; 2 курс — бағдарламалау; 3 курс — деректер және жоба."],["Тіркелу",form([["Жеке ақпарат",["Аты","text","Айдар",40],["Тегі","text","Нұрланов",40],bd,gn,ct],["Байланыс",em,ph],["Оқу",["Мамандығы","select",SP],["Курс","select","1;2;3;4"],["Топ","text","ПО-21",10],["Қызығушылықтары","check","Веб;Жасанды интеллект;Деректер"]],["Профиль",["Құпиясөз","password","Кемінде 8 таңба",30],["Құпиясөзді қайталау","password","Қайталаңыз",30],["Өзі туралы","textarea","Қысқаша"],["Фото жүктеу","file"]]],"Тіркелу")],["Байланыс",form([["Кері байланыс",nm,em,["Тақырып","text","Тақырыбы",80],["Бағалау","range","1;5"],["Хабарлама","textarea","Хабарлама"],["Файл тіркеу","file"]]],"Жіберу")]],"🎓 Онлайн университет")}]
+];
+var LV=["1–5 · Күрделі формалар ★★★","6–10 · Кеңейтілген элементтер ★★★★","11–15 · iframe және навигация ★★★★","16–20 · Form + iframe ★★★★★","21–22 · Толық жоба ★★★★★"],sb='';
+K.forEach(function(k,i){var v=i<20?Math.floor(i/5):4;if(i==0||(i<20?i%5==0:i==20))sb+='<h4>'+LV[v]+'</h4>';sb+='<a data-i="'+i+'" onclick="show('+i+')">'+(i+1)+'. '+k[0]+'</a>'});
+g('sd').innerHTML=sb;
+function show(i){I=[];g('main').innerHTML='<h2>'+(i+1)+'. '+K[i][0]+'</h2><p class="mu">'+K[i][1]+'</p>'+K[i][2]();I.forEach(function(f){f()});
+ document.querySelectorAll('#sd a').forEach(function(a){a.classList.toggle('on',a.dataset.i==i)});g('sd').classList.remove('open');g('main').scrollTop=0;try{history.replaceState(null,'','#'+(i+1))}catch(e){}}
+g('mb').onclick=function(){g('sd').classList.toggle('open')};
+var h=parseInt((location.hash||'').slice(1));show(h>=1&&h<=22?h-1:0);
+</script>
+</body></html>
